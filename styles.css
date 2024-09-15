@@ -428,3 +428,408 @@ h3 {
     border-radius: 5px;
     cursor: pointer;
 }
+
+#active-rooms-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 10;
+}
+
+#active-rooms-window {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 20;
+    width: 300px;
+    height: auto;
+}
+
+#rooms-grid-view {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr); /* 10 columns */
+    gap: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.room-box-view {
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+}
+
+.room-box-view.taken-room {
+    background-color: grey;
+}
+
+.room-box-view.available-room {
+    background-color: green;
+}
+
+.floating-buttons {
+    text-align: center;
+    margin-top: 10px;
+}
+
+#close-rooms-btn {
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+/* KITCHEN - CREATE ORDER */
+
+#create-order-overlay {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Dark overlay */
+    z-index: 10; /* Ensures it's behind the order window but above the rest of the content */
+}
+
+#create-order-window {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 20;
+    width: 450px; /* Increased width */
+    height: auto;
+}
+
+#create-order-window h3 {
+    margin-bottom: 20px;
+    font-size: 18px;
+    text-align: center;
+}
+
+/* Label improvements */
+#create-order-window label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* Input field adjustments */
+#create-order-window select,
+#create-order-window textarea,
+#create-order-window input[type="time"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+/* Align the Order Type (Breakfast, Lunch, etc.) horizontally */
+#order-type {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+#order-type input[type="radio"] {
+    margin-right: 5px;
+}
+
+#order-type label {
+    font-weight: normal;
+    margin-right: 20px;
+    white-space: nowrap;
+}
+
+/* Textarea styling for special instructions */
+#create-order-window textarea {
+    resize: vertical;
+    height: 80px;
+}
+
+/* Button styling */
+.floating-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.floating-buttons button {
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #f5f5f5;
+    transition: background-color 0.3s ease;
+    width: 45%; /* Set width for uniform button size */
+}
+
+.floating-buttons button:hover {
+    background-color: #e0e0e0; /* Slight hover effect */
+}
+
+.floating-buttons button:focus {
+    outline: none;
+    background-color: #dcdcdc;
+}
+
+/* General improvements */
+#create-order-window select,
+#create-order-window input,
+#create-order-window textarea {
+    font-size: 14px;
+    padding: 10px;
+}
+
+/* Improved spacing for a cleaner look */
+#create-order-window .floating-buttons {
+    margin-top: 15px;
+}
+
+/* -------------------------------------- KITCHEN - VIEW ORDERS */
+
+/* Active Orders Overlay - Background darkening */
+#active-orders-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 10;
+}
+
+/* Active Orders Window */
+#active-orders-window {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 20;
+    width: 500px;
+    height: auto;
+}
+
+#active-orders-window h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+#filter-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+#filter-section label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+#filter-section select {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+#orders-list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.order-info {
+    font-size: 14px;
+}
+
+.order-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.status-dropdown {
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.cancel-order-btn {
+    padding: 8px 12px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cancel-order-btn:hover {
+    background-color: #e60000;
+}
+
+.floating-buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#close-orders-btn {
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #f5f5f5;
+}
+
+#close-orders-btn:hover {
+    background-color: #e0e0e0;
+}
+
+
+
+/* ------------------------------------ CLEANING - CREATE ORDER ------------ */
+
+
+/* Create Cleaning Order Overlay - Background darkening */
+#create-cleaning-order-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 10;
+}
+
+/* Create Cleaning Order Window */
+#create-cleaning-order-window {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 20;
+    width: 450px;
+    height: auto;
+}
+
+#create-cleaning-order-window h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+/* Form styling for labels, inputs, and selects */
+#create-cleaning-order-window label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#create-cleaning-order-window select,
+#create-cleaning-order-window textarea,
+#create-cleaning-order-window input[type="time"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+#create-cleaning-order-window input[type="radio"] {
+    margin-right: 5px;
+}
+
+#create-cleaning-order-window textarea {
+    resize: vertical;
+    height: 80px;
+}
+
+#cleaning-type {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+#cleaning-type input[type="radio"] {
+    margin-right: 5px;
+}
+
+#cleaning-type label {
+    font-weight: normal;
+    margin-right: 20px;
+    white-space: nowrap;
+}
+
+/* Button styling */
+.floating-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.floating-buttons button {
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #f5f5f5;
+    transition: background-color 0.3s ease;
+    width: 45%; /* Set width for uniform button size */
+}
+
+.floating-buttons button:hover {
+    background-color: #e0e0e0; /* Slight hover effect */
+}
+
+.floating-buttons button:focus {
+    outline: none;
+    background-color: #dcdcdc;
+}
+
+

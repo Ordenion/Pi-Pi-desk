@@ -139,8 +139,8 @@
                         <h4>Kitchen</h4>
                     </div>
                     <div class="card-content">
-                        <button>CREATE ORDER</button>
-                        <button>ACTIVE ORDERS</button>
+                        <button class="create-order-btn">CREATE ORDER</button>
+                        <button class="view-orders-btn">ACTIVE ORDERS</button>
                         <button>ORDER HISTORY</button>
                         <button>EDIT MENU</button>
                     </div>
@@ -151,7 +151,7 @@
                         <h4>Cleaning</h4>
                     </div>
                     <div class="card-content">
-                        <button>CREATE ORDER</button>
+                        <button class="cleaning-create-order-btn">CREATE ORDER</button>
                         <button>VIEW / MANAGE SCHEDULE</button>
                     </div>
                 </div>
@@ -208,6 +208,215 @@
             <button id="confirm-checkout-btn">Confirm</button>
         </div>
     </div>
+
+    <div id="active-rooms-overlay"></div>
+
+<div id="active-rooms-window">
+    <h3>Active Rooms</h3>
+    <div id="rooms-grid-view">
+        <!-- 20 small boxes -->
+        <div class="room-box-view taken-room"></div>
+        <div class="room-box-view available-room"></div>
+        <div class="room-box-view taken-room"></div>
+        <div class="room-box-view available-room"></div>
+        <div class="room-box-view taken-room"></div>
+        <div class="room-box-view available-room"></div>
+        <div class="room-box-view taken-room"></div>
+        <div class="room-box-view available-room"></div>
+        <div class="room-box-view taken-room"></div>
+        <div class="room-box-view available-room"></div>
+        <div class="room-box-view available-room"></div>
+        <div class="room-box-view taken-room"></div>
+        <div class="room-box-view available-room"></div>
+        <div class="room-box-view taken-room"></div>
+        <div class="room-box-view available-room"></div>
+        <div class="room-box-view taken-room"></div>
+        <div class="room-box-view available-room"></div>
+        <div class="room-box-view taken-room"></div>
+        <div class="room-box-view available-room"></div>
+        <div class="room-box-view taken-room"></div>
+    </div>
+    <div class="floating-buttons">
+        <button id="close-rooms-btn">Close</button>
+    </div>
+</div>
+
+<div id="create-order-overlay"></div>
+
+<div id="create-order-window">
+    <h3>Create Order</h3>
+
+    <!-- Room Number -->
+    <label for="room-number">Room Number:</label>
+    <select id="room-number" name="room-number">
+        <option value="101">Room 101</option>
+        <option value="102">Room 102</option>
+        <option value="103">Room 103</option>
+        <option value="104">Room 104</option>
+        <option value="105">Room 105</option>
+    </select>
+
+    <!-- Order Type -->
+    <label for="order-type">Order Type:</label>
+    <div id="order-type">
+        <input type="radio" id="breakfast" name="order-type" value="Breakfast">
+        <label for="breakfast">Breakfast</label><br>
+        <input type="radio" id="lunch" name="order-type" value="Lunch">
+        <label for="lunch">Lunch</label><br>
+        <input type="radio" id="dinner" name="order-type" value="Dinner">
+        <label for="dinner">Dinner</label><br>
+        <input type="radio" id="special-request" name="order-type" value="Special Request">
+        <label for="special-request">Special Request</label>
+    </div>
+
+    <!-- Menu Selection -->
+    <label for="menu-items">Select Items:</label>
+    <select id="menu-items" name="menu-items" multiple>
+        <option value="1">Pasta</option>
+        <option value="2">Chicken Soup</option>
+        <option value="3">Grilled Steak</option>
+        <option value="4">Caesar Salad</option>
+        <option value="5">Fruit Juice</option>
+    </select>
+
+    <!-- Special Instructions -->
+    <label for="special-instructions">Special Instructions:</label>
+    <textarea id="special-instructions" name="special-instructions" rows="3" placeholder="Any dietary restrictions or preferences?"></textarea>
+
+    <!-- Estimated Delivery Time -->
+    <label for="delivery-time">Estimated Delivery Time:</label>
+    <input type="time" id="delivery-time" name="delivery-time">
+
+    <!-- Buttons -->
+    <div class="floating-buttons">
+        <button id="cancel-order-btn">Cancel</button>
+        <button id="confirm-order-btn">Confirm</button>
+    </div>
+</div>
+
+
+<div id="active-orders-overlay"></div>
+
+<div id="active-orders-window">
+    <h3>Active Orders</h3>
+
+    <!-- Filter Section -->
+    <div id="filter-section">
+        <label for="filter-room">Filter by Room:</label>
+        <select id="filter-room" name="filter-room">
+            <option value="">All Rooms</option>
+            <option value="101">Room 101</option>
+            <option value="102">Room 102</option>
+            <option value="103">Room 103</option>
+            <option value="104">Room 104</option>
+            <option value="105">Room 105</option>
+        </select>
+
+        <label for="filter-status">Filter by Status:</label>
+        <select id="filter-status" name="filter-status">
+            <option value="">All Statuses</option>
+            <option value="in-progress">In Progress</option>
+            <option value="completed">Completed</option>
+            <option value="delivered">Delivered</option>
+        </select>
+    </div>
+
+    <!-- Order List -->
+    <div id="orders-list">
+        <div class="order-item">
+            <div class="order-info">
+                <strong>Room 101</strong><br>
+                <span>Order Type: Breakfast</span><br>
+                <span>Time: 08:00 AM</span>
+            </div>
+            <div class="order-actions">
+                <select class="status-dropdown">
+                    <option value="in-progress">In Progress</option>
+                    <option value="completed">Completed</option>
+                    <option value="delivered">Delivered</option>
+                </select>
+                <button class="cancel-order-btn">Cancel</button>
+            </div>
+        </div>
+
+        <div class="order-item">
+            <div class="order-info">
+                <strong>Room 102</strong><br>
+                <span>Order Type: Dinner</span><br>
+                <span>Time: 06:30 PM</span>
+            </div>
+            <div class="order-actions">
+                <select class="status-dropdown">
+                    <option value="in-progress">In Progress</option>
+                    <option value="completed">Completed</option>
+                    <option value="delivered">Delivered</option>
+                </select>
+                <button class="cancel-order-btn">Cancel</button>
+            </div>
+        </div>
+
+        <!-- Add more orders similarly -->
+    </div>
+
+    <!-- Close Button -->
+    <div class="floating-buttons">
+        <button id="close-orders-btn">Close</button>
+    </div>
+</div>
+
+<div id="create-cleaning-order-overlay"></div>
+
+<div id="create-cleaning-order-window">
+    <h3>Create Cleaning Order</h3>
+
+    <!-- Room Number -->
+    <label for="room-number-cleaning">Room Number:</label>
+    <select id="room-number-cleaning" name="room-number-cleaning">
+        <option value="101">Room 101</option>
+        <option value="102">Room 102</option>
+        <option value="103">Room 103</option>
+        <option value="104">Room 104</option>
+        <option value="105">Room 105</option>
+    </select>
+
+    <!-- Cleaning Type -->
+    <label for="cleaning-type">Cleaning Type:</label>
+    <div id="cleaning-type">
+        <input type="radio" id="standard-clean" name="cleaning-type" value="Standard Clean">
+        <label for="standard-clean">Standard Clean</label><br>
+        <input type="radio" id="deep-clean" name="cleaning-type" value="Deep Clean">
+        <label for="deep-clean">Deep Clean</label><br>
+        <input type="radio" id="laundry-service" name="cleaning-type" value="Laundry Service">
+        <label for="laundry-service">Laundry Service</label><br>
+    </div>
+
+    <!-- Additional Services -->
+    <label for="extra-services">Select Additional Services:</label>
+    <select id="extra-services" name="extra-services" multiple>
+        <option value="towel-replacement">Towel Replacement</option>
+        <option value="linen-change">Linen Change</option>
+        <option value="amenities-replacement">Replace Amenities</option>
+        <option value="vacuuming">Vacuuming</option>
+        <option value="bathroom-sanitization">Bathroom Sanitization</option>
+    </select>
+
+    <!-- Special Instructions -->
+    <label for="special-instructions-cleaning">Special Instructions:</label>
+    <textarea id="special-instructions-cleaning" name="special-instructions-cleaning" rows="3" placeholder="Any additional requests?"></textarea>
+
+    <!-- Estimated Cleaning Time -->
+    <label for="cleaning-time">Estimated Cleaning Time:</label>
+    <input type="time" id="cleaning-time" name="cleaning-time">
+
+    <!-- Buttons -->
+    <div class="floating-buttons">
+        <button id="cancel-cleaning-order-btn">Cancel</button>
+        <button id="confirm-cleaning-order-btn">Confirm</button>
+    </div>
+</div>
+
+
+
 
     <script src="script.js"></script>
 </body>
