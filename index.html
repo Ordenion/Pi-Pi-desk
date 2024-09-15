@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porter Desk</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            Pocket Porter / Admin Console
+        </div>
+        <div class="menu-icon">
+            <i class="material-icons">menu</i>
+        </div>
+    </div>
+    
+    <div class="main-container">
+        <div class="resizable-column">
+            <h3 class="console-title">ACTIVE ORDERS</h3>
+            <div class="order-list">
+                <div class="order-card">
+                    <div class="room-number">
+                        <span class="room-label">Room</span>
+                        <span class="room-number-value">310</span>
+                    </div>
+                    <div class="order-details">
+                        <strong>Kitchen</strong><br>
+                        <span>Order #139</span>
+                    </div>
+                    <div class="order-meta">
+                        <span class="order-date">08/12</span>
+                        <span class="order-time">20:10</span>
+                    </div>
+                    <button class="close-btn">&times;</button>
+                </div>
+                
+                <div class="order-card">
+                    <div class="room-number">
+                        <span class="room-label">Room</span>
+                        <span class="room-number-value">307</span>
+                    </div>
+                    <div class="order-details">
+                        <strong>Kitchen</strong><br>
+                        <span>Order #138</span>
+                    </div>
+                    <div class="order-meta">
+                        <span class="order-date">08/12</span>
+                        <span class="order-time">20:10</span>
+                    </div>
+                    <button class="close-btn">&times;</button>
+                </div>
+                
+                <div class="order-card">
+                    <div class="room-number">
+                        <span class="room-label">Room</span>
+                        <span class="room-number-value">352</span>
+                    </div>
+                    <div class="order-details">
+                        <strong>Cleaning</strong><br>
+                        <span>Order #137</span>
+                    </div>
+                    <div class="order-meta">
+                        <span class="order-date">08/12</span>
+                        <span class="order-time">20:10</span>
+                    </div>
+                    <button class="close-btn">&times;</button>
+                </div>
+
+                <div class="order-card">
+                    <div class="room-number">
+                        <span class="room-label">Room</span>
+                        <span class="room-number-value">310</span>
+                    </div>
+                    <div class="order-details">
+                        <strong>Cleaning</strong><br>
+                        <span>Order #136</span>
+                    </div>
+                    <div class="order-meta">
+                        <span class="order-date">08/12</span>
+                        <span class="order-time">20:10</span>
+                    </div>
+                    <button class="close-btn">&times;</button>
+                </div>
+                
+                <div class="order-card">
+                    <div class="room-number">
+                        <span class="room-label">Room</span>
+                        <span class="room-number-value">307</span>
+                    </div>
+                    <div class="order-details">
+                        <strong>Kitchen</strong><br>
+                        <span>Order #135</span>
+                    </div>
+                    <div class="order-meta">
+                        <span class="order-date">08/12</span>
+                        <span class="order-time">20:10</span>
+                    </div>
+                    <button class="close-btn">&times;</button>
+                </div>
+                
+                <div class="order-card">
+                    <div class="room-number">
+                        <span class="room-label">Room</span>
+                        <span class="room-number-value">352</span>
+                    </div>
+                    <div class="order-details">
+                        <strong>Cleaning</strong><br>
+                        <span>Order #134</span>
+                    </div>
+                    <div class="order-meta">
+                        <span class="order-date">08/12</span>
+                        <span class="order-time">20:10</span>
+                    </div>
+                    <button class="close-btn">&times;</button>
+                </div>
+            </div>
+        </div>
+        <div class="resizer"></div>
+        <div class="main-content-container">
+            <h3 class="console-title">ACTIVE CONSOLE</h3>
+            <div class="main-content">
+                <div class="console-card">
+                    <div class="card-header">
+                        <img src="rooms.ico" alt="Rooms Icon" class="card-icon">
+                        <h4>Rooms</h4>
+                    </div>
+                    <div class="card-content">
+                        <button>CHECK-IN A GUEST</button>
+                        <button>CHECK-OUT A GUEST</button>
+                        <button>VIEW ACTIVE ROOMS</button>
+                    </div>
+                </div>
+                <div class="console-card">
+                    <div class="card-header">
+                        <img src="kitchen.ico" alt="Kitchen Icon" class="card-icon">
+                        <h4>Kitchen</h4>
+                    </div>
+                    <div class="card-content">
+                        <button>CREATE ORDER</button>
+                        <button>ACTIVE ORDERS</button>
+                        <button>ORDER HISTORY</button>
+                        <button>EDIT MENU</button>
+                    </div>
+                </div>
+                <div class="console-card">
+                    <div class="card-header">
+                        <img src="cleaning.ico" alt="Cleaning Icon" class="card-icon">
+                        <h4>Cleaning</h4>
+                    </div>
+                    <div class="card-content">
+                        <button>CREATE ORDER</button>
+                        <button>VIEW / MANAGE SCHEDULE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="overlay"></div>
+
+    <div id="floating-window">
+        <h3>Check-in a Guest</h3>
+        <label for="guest-name">Full Name:</label>
+        <input type="text" id="guest-name" name="guest-name">
+    
+        <label for="checkin-date">Check-in Date:</label>
+        <input type="date" id="checkin-date" name="checkin-date">
+    
+        <label for="checkout-date">Check-out Date:</label>
+        <input type="date" id="checkout-date" name="checkout-date">
+    
+        <label for="comments">Add a Comment:</label>
+        <textarea id="comments" name="comments"></textarea>
+    
+        <div class="floating-buttons">
+            <button id="cancel-btn">Cancel</button>
+            <button id="confirm-btn">Confirm</button>
+        </div>
+    </div>
+
+    <div id="checkout-overlay"></div>
+
+    <div id="checkout-window">
+        <h3>Check-out a Guest</h3>
+
+        <label for="guest-select">Select Guest:</label>
+            <select id="guest-select" name="guest-select">
+                <option value="guest1">John Doe</option>
+                <option value="guest2">Jane Smith</option>
+                <option value="guest3">Michael Brown</option>
+                <option value="guest4">Emily Johnson</option>
+                <option value="guest5">Robert Davis</option>
+            </select>
+
+        <label for="checkout-date">Check-out Date:</label>
+        <input type="date" id="checkout-date-checkout" name="checkout-date">
+
+        <div class="checkbox-section">
+            <input type="checkbox" id="request-cleaning" name="request-cleaning">
+            <label for="request-cleaning">Request cleaning for the room</label>
+        </div>
+
+        <div class="floating-buttons">
+            <button id="cancel-checkout-btn">Cancel</button>
+            <button id="confirm-checkout-btn">Confirm</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
